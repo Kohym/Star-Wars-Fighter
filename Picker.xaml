@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ta_Boss_věc"
         mc:Ignorable="d"
-        Title="Picker" Height="517" Width="800" Background="Black" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        WindowState="Maximized"
+        WindowStyle="None"
+        Title="Picker" Height="1080" Width="1920" Background="Black" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -64,24 +66,15 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="47*"/>
-            <RowDefinition Height="454*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="221*"/>
-            <ColumnDefinition Width="501*"/>
-            <ColumnDefinition Width="78*"/>
-        </Grid.ColumnDefinitions>
-        <Label FontFamily="Franklin Gothic Demi" FontWeight="Bold"  HorizontalContentAlignment="Center" FontSize="80" Foreground="White" Content="Pick a Fighter" Height="138" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
-        <Image Stretch="Fill" x:Name="falcon" Margin="35,70,487,184" Grid.ColumnSpan="2" MouseDown="falcon_MouseDown" RenderTransformOrigin="0.464,0.514" MouseEnter="falcon_MouseEnter" MouseLeave="falcon_MouseLeave" Grid.Row="1"/>
-        <Image Stretch="Fill" x:Name="X" Margin="0,70,222,0" Height="200" VerticalAlignment="Top" Grid.Column="1" MouseDown="X_MouseDown" RenderTransformOrigin="-0.051,0.038" HorizontalAlignment="Right" Width="200" MouseEnter="X_MouseEnter" MouseLeave="X_MouseLeave" Grid.Row="1"/>
-        <Image Stretch="Fill" x:Name="Y" Margin="344,70,35,0" Height="200" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" MouseDown="Y_MouseDown" MouseEnter="Y_MouseEnter" MouseLeave="Y_MouseLeave" Grid.Row="1" />
-        <Label x:Name="falcon_text" VerticalContentAlignment="Center" FontSize="25" Foreground="White" HorizontalContentAlignment="Center" Content="Milenium Falcon" HorizontalAlignment="Right" Height="60" Margin="0,275,487,0" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" MouseDown="falcon_text_MouseDown" FontFamily="Franklin Gothic Demi" Grid.Row="1"/>
-        <Label x:Name="X_text" FontWeight="DemiBold" VerticalContentAlignment="Center" FontSize="25" Foreground="White" HorizontalContentAlignment="Center" Content="X-Wing" HorizontalAlignment="Left" Height="60" Margin="79,275,0,0" VerticalAlignment="Top" Width="200" RenderTransformOrigin="1.226,0.536" Grid.Column="1" MouseDown="X_text_MouseDown" FontFamily="Franklin Gothic Demi" Grid.Row="1"/>
-        <Label  x:Name="Y_text" FontWeight="DemiBold" VerticalContentAlignment="Center" FontSize="25" Foreground="White" HorizontalContentAlignment="Center" Content="Y-Wing" HorizontalAlignment="Left" Height="60" Margin="344,275,0,0" VerticalAlignment="Top" Width="200" Grid.Column="1" Grid.ColumnSpan="2" MouseDown="Y_text_MouseDown" FontFamily="Franklin Gothic Demi" Grid.Row="1"/>
-        <Button Style="{DynamicResource ButtonStyle1}" x:Name="GO" BorderBrush="Transparent" BorderThickness="3" Foreground="#ffe81f" FontWeight="Bold" Background="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="60" Content="Go!" Margin="0,323,222,0" Grid.Column="1" Click="OpenWindow" HorizontalAlignment="Right" Width="200" Height="104" VerticalAlignment="Top" Grid.Row="1"/>
-        <Popup x:Name="popupFalcon" Placement="Mouse" AllowsTransparency="True" PopupAnimation="Slide" Grid.RowSpan="2">
+        <Label VerticalContentAlignment="Center" FontFamily="Franklin Gothic Demi" FontWeight="Bold"  HorizontalContentAlignment="Center" FontSize="200" Foreground="White" Content="Pick a Fighter" Margin="-4,0,4,835"/>
+        <Image Stretch="Fill" x:Name="falcon" Margin="200,262,1320,418" MouseDown="falcon_MouseDown" RenderTransformOrigin="0.464,0.514" MouseEnter="falcon_MouseEnter" MouseLeave="falcon_MouseLeave" Width="400" Height="400"/>
+        <Image Stretch="Fill" x:Name="X" Margin="760,262,760,418" MouseDown="X_MouseDown" RenderTransformOrigin="-0.051,0.038" MouseEnter="X_MouseEnter" MouseLeave="X_MouseLeave" Width="400" Height="400"/>
+        <Image Stretch="Fill" x:Name="Y" Margin="1320,262,200,418" MouseDown="Y_MouseDown" MouseEnter="Y_MouseEnter" MouseLeave="Y_MouseLeave" Width="400" Height="400" />
+        <Label x:Name="falcon_text" VerticalContentAlignment="Center" FontSize="60" Foreground="White" HorizontalContentAlignment="Center" Content="Milenium Falcon" Margin="150,670,1270,210" MouseDown="falcon_text_MouseDown" FontFamily="Franklin Gothic Demi" Width="500" Height="200"/>
+        <Label x:Name="X_text" FontWeight="DemiBold" VerticalContentAlignment="Center" FontSize="100" Foreground="White" HorizontalContentAlignment="Center" Content="X-Wing" Margin="710,670,710,210" RenderTransformOrigin="1.226,0.536" MouseDown="X_text_MouseDown" FontFamily="Franklin Gothic Demi" Width="500" Height="200"/>
+        <Label  x:Name="Y_text" FontWeight="DemiBold" VerticalContentAlignment="Center" FontSize="100" Foreground="White" HorizontalContentAlignment="Center" Content="Y-Wing" Margin="1270,670,150,210" MouseDown="Y_text_MouseDown" FontFamily="Franklin Gothic Demi" Width="500" Height="200"/>
+        <Button Style="{DynamicResource ButtonStyle1}" x:Name="GO" BorderBrush="Transparent" BorderThickness="3" Foreground="#ffe81f" FontWeight="Bold" Background="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="120" Content="Go!" Margin="756,870,0,10" Click="OpenWindow" HorizontalAlignment="Left" Width="400" Height="200"/>
+        <Popup x:Name="popupFalcon" Placement="Mouse" AllowsTransparency="True" PopupAnimation="Slide">
             <Canvas x:Name="F1" Width="72" Height="52" Background="Black">
                 <Canvas.RenderTransform>
                     <RotateTransform x:Name="theTransform"/>
@@ -90,7 +83,7 @@
                Text = " DMG: 30 &#xD;&#xA; HP: 160 &#xD;&#xA; Agility: 5" FontFamily="Franklin Gothic Demi" FontSize="15"/>
             </Canvas>
         </Popup>
-        <Popup x:Name="popupX" Placement="Mouse" AllowsTransparency="True" PopupAnimation="Slide" Grid.RowSpan="2">
+        <Popup x:Name="popupX" Placement="Mouse" AllowsTransparency="True" PopupAnimation="Slide">
             <Canvas x:Name="X1" Width="72" Height="52" Background="Black">
                 <Canvas.RenderTransform>
                     <RotateTransform x:Name="theTransform2"/>
@@ -99,7 +92,7 @@
                Text = " DMG: 35 &#xD;&#xA; HP: 100 &#xD;&#xA; Agility: 50" FontFamily="Franklin Gothic Demi" FontSize="15"/>
             </Canvas>
         </Popup>
-        <Popup x:Name="popupY" Placement="Mouse" AllowsTransparency="True" PopupAnimation="Slide" Grid.RowSpan="2">
+        <Popup x:Name="popupY" Placement="Mouse" AllowsTransparency="True" PopupAnimation="Slide">
             <Canvas x:Name="Y1" Width="72" Height="52" Background="Black">
                 <Canvas.RenderTransform>
                     <RotateTransform x:Name="theTransform3"/>
@@ -108,6 +101,6 @@
                Text = " DMG: 70 &#xD;&#xA; HP: 70 &#xD;&#xA; Agility: 10"/>
             </Canvas>
         </Popup>
-        <Image x:Name="hid" HorizontalAlignment="Left" Height="500" Width="800" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="3" Stretch="Fill" Source="/Imgs/blck.jpg"/>
+        <Image x:Name="hid" Stretch="Fill" Source="/Imgs/blck.jpg" Margin="0,0,-2,0" Width="1920" Height="1080"/>
     </Grid>
 </Window>
