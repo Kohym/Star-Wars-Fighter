@@ -204,7 +204,7 @@ namespace Ta_Boss_věc
         {
             var sound1 = new MediaPlayer();
             var sound2 = new MediaPlayer();
-            await Task.Delay(2000);
+            await Task.Delay(7000);
             MessageBox.Show("You enter the command center.");
             var sound1file = new Uri($@"mp3/door.mp3", UriKind.Relative);
             sound1.Open(sound1file);
