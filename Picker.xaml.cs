@@ -28,7 +28,6 @@ namespace Ta_Boss_věc
         public Picker()
         {
             InitializeComponent();
-            hid.Source = new BitmapImage(new Uri(@"Imgs\blck.png", UriKind.Relative));
             falcon.Source = new BitmapImage(new Uri(@"Imgs/F.png", UriKind.Relative));
             X.Source = new BitmapImage(new Uri(@"Imgs/X.png", UriKind.Relative));
             Y.Source = new BitmapImage(new Uri(@"Imgs/Y.png", UriKind.Relative));
@@ -204,6 +203,7 @@ namespace Ta_Boss_věc
         {
             var sound1 = new MediaPlayer();
             var sound2 = new MediaPlayer();
+            hid.Source = new BitmapImage(new Uri(@"Imgs\blck.png", UriKind.Relative));
             await Task.Delay(7000);
             MessageBox.Show("You enter the command center.");
             var sound1file = new Uri($@"mp3/door.mp3", UriKind.Relative);

@@ -108,6 +108,6 @@
                Text = " DMG: 70 &#xD;&#xA; HP: 70 &#xD;&#xA; Agility: 10"/>
             </Canvas>
         </Popup>
-        <Image x:Name="hid" HorizontalAlignment="Left" Height="500" Width="800" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="3" Stretch="Fill"/>
+        <Image x:Name="hid" HorizontalAlignment="Left" Height="500" Width="800" VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="3" Stretch="Fill" Source="/Imgs/blck.jpg"/>
     </Grid>
 </Window>
