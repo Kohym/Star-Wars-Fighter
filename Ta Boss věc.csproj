@@ -1,0 +1,194 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>Ta_Boss_věc</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Falcon.png" />
+    <None Remove="Imgs\blck.png" />
+    <None Remove="Imgs\center.png" />
+    <None Remove="Imgs\Elogo.png" />
+    <None Remove="Imgs\F.png" />
+    <None Remove="Imgs\Falcon.png" />
+    <None Remove="Imgs\Falcon1.png" />
+    <None Remove="Imgs\FalconY.png" />
+    <None Remove="Imgs\FY.png" />
+    <None Remove="Imgs\Milenium Falcon.png" />
+    <None Remove="Imgs\Milenium_Falcon.png" />
+    <None Remove="Imgs\Rlogo.png" />
+    <None Remove="Imgs\Star Destroyer.png" />
+    <None Remove="Imgs\Star_Destroyer.png" />
+    <None Remove="Imgs\TIE bomber.png" />
+    <None Remove="Imgs\TIE Fighter.png" />
+    <None Remove="Imgs\TIE Interceptor.png" />
+    <None Remove="Imgs\TIE.png" />
+    <None Remove="Imgs\TIE_Bomber.png" />
+    <None Remove="Imgs\TIE_Fighter.png" />
+    <None Remove="Imgs\TIE_Interceptor.png" />
+    <None Remove="Imgs\Vader_TIE.png" />
+    <None Remove="Imgs\X-Wing.png" />
+    <None Remove="Imgs\X-WingY.png" />
+    <None Remove="Imgs\X.png" />
+    <None Remove="Imgs\X1.png" />
+    <None Remove="Imgs\XY.png" />
+    <None Remove="Imgs\Y-Wing.png" />
+    <None Remove="Imgs\Y-Wing1.png" />
+    <None Remove="Imgs\Y-WingY.png" />
+    <None Remove="Imgs\Y.png" />
+    <None Remove="Imgs\Y1.png" />
+    <None Remove="Imgs\YY.png" />
+    <None Remove="mp3\door.mp3" />
+    <None Remove="mp3\Ewin.mp3" />
+    <None Remove="mp3\log.mp3" />
+    <None Remove="mp3\Milenium_Falcon.mp3" />
+    <None Remove="mp3\Millenium_Falcon_FLY.mp3" />
+    <None Remove="mp3\Pwin.mp3" />
+    <None Remove="mp3\Star_Destroyer.mp3" />
+    <None Remove="mp3\Star_Destroyer_FLY.mp3" />
+    <None Remove="mp3\talk.mp3" />
+    <None Remove="mp3\TIE_Bomber.mp3" />
+    <None Remove="mp3\TIE_Bomber_FLY.mp3" />
+    <None Remove="mp3\TIE_Fighter.mp3" />
+    <None Remove="mp3\TIE_Fighter_FLY.mp3" />
+    <None Remove="mp3\TIE_Interceptor.mp3" />
+    <None Remove="mp3\TIE_Interceptor_FLY.mp3" />
+    <None Remove="mp3\Vader_TIE.mp3" />
+    <None Remove="mp3\Vader_TIE_FLY.mp3" />
+    <None Remove="mp3\walk.mp3" />
+    <None Remove="mp3\X-Wing.mp3" />
+    <None Remove="mp3\X-Wing_FLY.mp3" />
+    <None Remove="mp3\Y-Wing.mp3" />
+    <None Remove="mp3\Y-Wing_FLY.mp3" />
+    <None Remove="X-Wing.png" />
+    <None Remove="Y-Wing.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Imgs\blck.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\center.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\Elogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\F.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\FY.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\Milenium_Falcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\Rlogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\Star_Destroyer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\TIE_Bomber.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\TIE_Fighter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\TIE_Interceptor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\Vader_TIE.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\X-Wing.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\X.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\XY.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\Y-Wing.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\Y.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\YY.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\door.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Ewin.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\log.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Milenium_Falcon.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Millenium_Falcon_FLY.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Pwin.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Star_Destroyer.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Star_Destroyer_FLY.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\talk.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\TIE_Bomber.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\TIE_Bomber_FLY.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\TIE_Fighter.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\TIE_Fighter_FLY.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\TIE_Interceptor.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\TIE_Interceptor_FLY.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Vader_TIE.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Vader_TIE_FLY.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\walk.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\X-Wing.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\X-Wing_FLY.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Y-Wing.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Y-Wing_FLY.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+﻿<Window x:Class="Ta_Boss_věc.Los"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ta_Boss_věc"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Title="Los" Height="1080" Width="1920" Background="Black">
+    <Grid>
+        <Image Margin="613,10,613,354" Source="/Imgs/Elogo.png" Stretch="Fill"/>
+        <Label FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="140" Content="All is lost" Foreground="White" HorizontalAlignment="Center" Height="245" Margin="0,710,0,0" VerticalAlignment="Top" Width="1690" FontFamily="Franklin Gothic Demi"/>
+        <Button x:Name="End" Foreground="White" FontSize="120" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Content="Exit" HorizontalAlignment="Center" Height="142" Margin="0,912,0,0" VerticalAlignment="Top" Width="328" FontWeight="Bold" FontFamily="Franklin Gothic Demi" MouseEnter="Button_MouseEnter" Click="End_Click" MouseLeave="End_MouseLeave"/>
+    </Grid>
+</Window>
