@@ -15,8 +15,22 @@ namespace Ta_Boss_věc
             ins = this;
         }
     }
-    class Class2 
+    public class Class2 
     {
-        public int select2 { get; set; }
+        public int mission { get; set; }
+        public static Class2 ins;
+        public Class2()
+        {
+            ins = this;
+        }
+    }
+    public class Class3
+    {
+        public int scene { get; set; }
+        public static Class3 ins;
+        public Class3()
+        {
+            ins = this;
+        }
     }
 }

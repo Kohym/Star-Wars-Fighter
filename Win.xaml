@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         WindowStyle="None"
-        Title="Win" Height="1080" Width="1920" Background="Black">
+        Title="Win" Height="1080" Width="1920" Background="Black" Loaded="Window_Loaded">
     <Grid>
         <Image Margin="613,10,613,354" Source="/Imgs/Rlogo.png" Stretch="Fill"/>
-        <Label FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="140" Content="The good has prevailed" Foreground="White" HorizontalAlignment="Center" Height="245" Margin="0,710,0,0" VerticalAlignment="Top" Width="1690" FontFamily="Franklin Gothic Demi"/>
-        <Button x:Name="End" Foreground="White" FontSize="120" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Content="Exit" HorizontalAlignment="Center" Height="142" Margin="0,912,0,0" VerticalAlignment="Top" Width="328" FontWeight="Bold" FontFamily="Franklin Gothic Demi" MouseEnter="Button_MouseEnter" Click="End_Click" MouseLeave="End_MouseLeave"/>
+        <Label FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="140" Content="Mission successful" Foreground="White" HorizontalAlignment="Center" Height="245" Margin="0,710,0,0" VerticalAlignment="Top" Width="1690" FontFamily="Franklin Gothic Demi"/>
+        <Button x:Name="End" Foreground="White" FontSize="120" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Content="Exit" HorizontalAlignment="Left" Height="142" Margin="1159,912,0,0" VerticalAlignment="Top" Width="328" FontWeight="Bold" FontFamily="Franklin Gothic Demi" MouseEnter="Button_MouseEnter" Click="End_Click" MouseLeave="End_MouseLeave" RenderTransformOrigin="1.563,0.543"/>
+        <Button x:Name="menu" Foreground="White" FontSize="120" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Content="Menu" HorizontalAlignment="Left" Height="142" Margin="393,912,0,0" VerticalAlignment="Top" Width="567" FontWeight="Bold" FontFamily="Franklin Gothic Demi" MouseEnter="menu_MouseEnter" Click="menu_Click" MouseLeave="menu_MouseLeave" RenderTransformOrigin="0.696,0.662"/>
     </Grid>
 </Window>

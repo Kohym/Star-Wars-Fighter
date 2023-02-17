@@ -19,13 +19,11 @@ namespace Ta_Boss_věc
     /// </summary>
     public partial class Win : Window
     {
+        Class3 helpus;
         public Win()
         {
             InitializeComponent();
-            var sound1 = new MediaPlayer();
-            var sound1file = new Uri($@"mp3/Pwin.mp3", UriKind.Relative);
-            sound1.Open(sound1file);
-            sound1.Play();
+            this.helpus = new Class3();
         }
 
         private void Button_MouseEnter(object sender, MouseEventArgs e)
@@ -41,6 +39,31 @@ namespace Ta_Boss_věc
         private void End_MouseLeave(object sender, MouseEventArgs e)
         {
             End.Foreground = myBrush;
+        }
+
+        private void menu_MouseEnter(object sender, MouseEventArgs e)
+        {
+            menu.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffe81f"));
+        }
+
+        private void menu_MouseLeave(object sender, MouseEventArgs e)
+        {
+            menu.Foreground = myBrush;
+        }
+
+        private void menu_Click(object sender, RoutedEventArgs e)
+        {
+            helpus.scene = 1;
+            Picker objMainWindow = new Picker();
+            this.Visibility = Visibility.Hidden;
+            objMainWindow.Show();
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var sound3 = new MediaPlayer();
+            var sound3file = new Uri($@"mp3/Pwin.mp3", UriKind.Relative);
+            sound3.Open(sound3file);
+            sound3.Play();
         }
     }
 }

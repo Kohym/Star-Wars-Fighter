@@ -20,9 +20,12 @@
         </Style>
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Static.Foreground" Color="White"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#ffe81f"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Foreground" Color="Black"/>
         <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#ffe81f"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#ffe81f"/>
+        <SolidColorBrush x:Key="Button.Pressed.Foreground" Color="Black"/>
         <SolidColorBrush x:Key="Button.Pressed.Border" Color="#ffe81f"/>
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
@@ -31,7 +34,7 @@
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Foreground" Value="{StaticResource Button.Static.Foreground}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -48,11 +51,11 @@
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                <Setter Property="Foreground" Value="{StaticResource Button.MouseOver.Foreground}"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                <Setter Property="Foreground" Value="{StaticResource Button.Pressed.Foreground}"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
@@ -64,23 +67,68 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="Transparent"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="Transparent"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="Transparent"/>
+        <Style x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Grid>
-        <Label VerticalContentAlignment="Center" FontFamily="Franklin Gothic Demi" FontWeight="Bold"  HorizontalContentAlignment="Center" FontSize="200" Foreground="White" Content="Pick a Fighter" Margin="-4,0,4,835"/>
-        <Image Stretch="Fill" x:Name="falcon" Margin="200,262,1320,418" MouseDown="falcon_MouseDown" RenderTransformOrigin="0.464,0.514" MouseEnter="falcon_MouseEnter" MouseLeave="falcon_MouseLeave" Width="400" Height="400"/>
-        <Image Stretch="Fill" x:Name="X" Margin="760,262,760,418" MouseDown="X_MouseDown" RenderTransformOrigin="-0.051,0.038" MouseEnter="X_MouseEnter" MouseLeave="X_MouseLeave" Width="400" Height="400"/>
-        <Image Stretch="Fill" x:Name="Y" Margin="1320,262,200,418" MouseDown="Y_MouseDown" MouseEnter="Y_MouseEnter" MouseLeave="Y_MouseLeave" Width="400" Height="400" />
-        <Label x:Name="falcon_text" VerticalContentAlignment="Center" FontSize="60" Foreground="White" HorizontalContentAlignment="Center" Content="Milenium Falcon" Margin="150,670,1270,210" MouseDown="falcon_text_MouseDown" FontFamily="Franklin Gothic Demi" Width="500" Height="200"/>
-        <Label x:Name="X_text" FontWeight="DemiBold" VerticalContentAlignment="Center" FontSize="100" Foreground="White" HorizontalContentAlignment="Center" Content="X-Wing" Margin="710,670,710,210" RenderTransformOrigin="1.226,0.536" MouseDown="X_text_MouseDown" FontFamily="Franklin Gothic Demi" Width="500" Height="200"/>
-        <Label  x:Name="Y_text" FontWeight="DemiBold" VerticalContentAlignment="Center" FontSize="100" Foreground="White" HorizontalContentAlignment="Center" Content="Y-Wing" Margin="1270,670,150,210" MouseDown="Y_text_MouseDown" FontFamily="Franklin Gothic Demi" Width="500" Height="200"/>
-        <Button Style="{DynamicResource ButtonStyle1}" x:Name="GO" BorderBrush="Transparent" BorderThickness="3" Foreground="#ffe81f" FontWeight="Bold" Background="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="120" Content="Go!" Margin="756,870,0,10" Click="OpenWindow" HorizontalAlignment="Left" Width="400" Height="200"/>
+        <Label x:Name="pick_fighter" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Demi" FontWeight="Bold"  HorizontalContentAlignment="Center" FontSize="200" Foreground="White" Content="Pick a Fighter" Margin="-4,0,4,835" Visibility="Collapsed"/>
+        <Image Stretch="Fill" x:Name="falcon" Margin="200,262,1320,418" MouseDown="falcon_MouseDown" RenderTransformOrigin="0.464,0.514" MouseEnter="falcon_MouseEnter" MouseLeave="falcon_MouseLeave" Width="400" Height="400" Visibility="Collapsed"/>
+        <Image Stretch="Fill" x:Name="X" Margin="760,262,760,418" MouseDown="X_MouseDown" RenderTransformOrigin="-0.051,0.038" MouseEnter="X_MouseEnter" MouseLeave="X_MouseLeave" Width="400" Height="400" Visibility="Collapsed"/>
+        <Image Stretch="Fill" x:Name="Y" Margin="1320,262,200,418" MouseDown="Y_MouseDown" MouseEnter="Y_MouseEnter" MouseLeave="Y_MouseLeave" Width="400" Height="400" Visibility="Collapsed" />
+        <Label x:Name="falcon_text" VerticalContentAlignment="Center" FontSize="67" Foreground="White" HorizontalContentAlignment="Center" Content="Milenium Falcon" Margin="150,670,1270,210" MouseDown="falcon_text_MouseDown" FontFamily="Franklin Gothic Demi" Width="500" Height="200" Visibility="Collapsed"/>
+        <Label x:Name="X_text" FontWeight="DemiBold" VerticalContentAlignment="Center" FontSize="67" Foreground="White" HorizontalContentAlignment="Center" Content="X-Wing" Margin="710,670,710,210" RenderTransformOrigin="1.226,0.536" MouseDown="X_text_MouseDown" FontFamily="Franklin Gothic Demi" Width="500" Height="200" Visibility="Collapsed"/>
+        <Label  x:Name="Y_text" FontWeight="DemiBold" VerticalContentAlignment="Center" FontSize="67" Foreground="White" HorizontalContentAlignment="Center" Content="Y-Wing" Margin="1270,670,150,210" MouseDown="Y_text_MouseDown" FontFamily="Franklin Gothic Demi" Width="500" Height="200" Visibility="Collapsed"/>
+        <Button Style="{DynamicResource ButtonStyle1}"  x:Name="GO" BorderBrush="Transparent" BorderThickness="5" FontWeight="Bold" Background="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="170" Content="Start" Margin="756,844,0,36" Click="OpenWindow" HorizontalAlignment="Left" Width="400" Height="200" Visibility="Collapsed"/>
+        <Button Style="{DynamicResource ButtonStyle1}"  x:Name="back" BorderBrush="Transparent" BorderThickness="5" Background="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="90" Content="&lt;Back" Margin="0,879,0,0" HorizontalAlignment="Left" Width="400" Height="200" FontWeight="Bold" Click="back_Click" Visibility="Collapsed"/>
         <Popup x:Name="popupFalcon" Placement="Mouse" AllowsTransparency="True" PopupAnimation="Slide">
             <Canvas x:Name="F1" Width="72" Height="52" Background="Black">
                 <Canvas.RenderTransform>
                     <RotateTransform x:Name="theTransform"/>
                 </Canvas.RenderTransform>
                 <TextBlock x:Name="F2" TextWrapping = "Wrap" Foreground = "White"
-               Text = " DMG: 30 &#xD;&#xA; HP: 160 &#xD;&#xA; Agility: 5" FontFamily="Franklin Gothic Demi" FontSize="15"/>
+               Text = " DMG: 30 &#xD;&#xA; HP: 160 &#xD;&#xA; Agility: 15" FontFamily="Franklin Gothic Demi" FontSize="15"/>
             </Canvas>
         </Popup>
         <Popup x:Name="popupX" Placement="Mouse" AllowsTransparency="True" PopupAnimation="Slide">
@@ -89,7 +137,7 @@
                     <RotateTransform x:Name="theTransform2"/>
                 </Canvas.RenderTransform>
                 <TextBlock x:Name="X2" TextWrapping = "Wrap" Foreground = "White"
-               Text = " DMG: 35 &#xD;&#xA; HP: 100 &#xD;&#xA; Agility: 50" FontFamily="Franklin Gothic Demi" FontSize="15"/>
+               Text = " DMG: 35 &#xD;&#xA; HP: 70 &#xD;&#xA; Agility: 70" FontFamily="Franklin Gothic Demi" FontSize="15"/>
             </Canvas>
         </Popup>
         <Popup x:Name="popupY" Placement="Mouse" AllowsTransparency="True" PopupAnimation="Slide">
@@ -98,9 +146,37 @@
                     <RotateTransform x:Name="theTransform3"/>
                 </Canvas.RenderTransform>
                 <TextBlock x:Name="Y2" TextWrapping = "Wrap" Foreground = "White" FontFamily="Franklin Gothic Demi" FontSize="15"
-               Text = " DMG: 70 &#xD;&#xA; HP: 70 &#xD;&#xA; Agility: 10"/>
+               Text = " DMG: 70 &#xD;&#xA; HP: 100 &#xD;&#xA; Agility: 30"/>
             </Canvas>
         </Popup>
-        <Image x:Name="hid" Stretch="Fill" Source="/Imgs/blck.jpg" Margin="0,0,-2,0" Width="1920" Height="1080"/>
+        <TextBlock x:Name="sss" Background="White" HorizontalAlignment="Left" Height="1080" Margin="640,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="20"/>
+        <Label x:Name="M" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="75" Content="Available &#xD;&#xA;missions:" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Width="640"/>
+        <Button Style="{DynamicResource ButtonStyle1}" Background="Transparent" BorderThickness="0" x:Name="M1" BorderBrush="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="70" Content="TIE Patrol" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Width="640" Margin="0,180,0,0" Click="M1_Click"/>
+        <Button Style="{DynamicResource ButtonStyle1}" Background="Transparent" BorderThickness="0" x:Name="M2" BorderBrush="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="70" Content="Bombing run" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Width="640" Margin="0,360,0,0" Click="M2_Click"/>
+        <Button Style="{DynamicResource ButtonStyle1}" Background="Transparent" BorderThickness="0" x:Name="M3" BorderBrush="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="70" Content="Testing site" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Width="640" Margin="0,540,0,0" Click="M3_Click"/>
+        <Button Style="{DynamicResource ButtonStyle1}" Background="Transparent" BorderThickness="0" x:Name="M4" BorderBrush="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="70" Content="Valuable cargo" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Width="640" Margin="0,720,0,0" Click="M4_Click"/>
+        <Button Style="{DynamicResource ButtonStyle1}" Background="Transparent" BorderThickness="0" x:Name="M5" BorderBrush="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="70" Content="Battle of Yavin" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Width="640" Margin="0,900,0,0" Click="M5_Click"/>
+        <Label x:Name="MD" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="100" Content="Mission description:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="180" Width="1260" Margin="660,0,0,0" FontFamily="Franklin Gothic Demi"/>
+        <TextBlock x:Name="MD1" Foreground="White" FontSize="50" HorizontalAlignment="Left" Margin="700,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="900" Width="1220" FontFamily="Franklin Gothic Book" Visibility="Collapsed" Text="An Imperial patrol has been spotted near our sector and needs to be dealt with.&#xD;&#xA;&#xD;&#xA;Expected enemy strength:&#xD;&#xA;4x  TIE fighter"/>
+        <TextBlock x:Name="MD2" Foreground="White" FontSize="50" HorizontalAlignment="Left" Margin="700,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="900" Width="1220" FontFamily="Franklin Gothic Book" Text="TIE bombers escorted by fighters are returning from a bombing mission.&#xA;Intercept and destroy them.&#xA;&#xA;Enemy strength:&#xD;&#xA;1x TIE fighter&#xA;2x TIE interceptor&#xA;3x TIE bomber" Visibility="Collapsed"/>
+        <TextBlock x:Name="MD3" Foreground="White" FontSize="50" HorizontalAlignment="Left" Margin="700,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="900" Width="1220" FontFamily="Franklin Gothic Book" Text="Investigate reports of an Imperial testing site.&#xA;&#xA;Expected enemy strength:&#xA;3x TIE interceptor or fighter&#xA;1x Star Destroyer&#xA;2x ???" Visibility="Collapsed"/>
+        <TextBlock x:Name="MD4" Foreground="White" FontSize="50" HorizontalAlignment="Left" Margin="700,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="900" Width="1220" FontFamily="Franklin Gothic Book" Text="Valuable cargo is being transported aboard a Star Destroyer and must not reach its destination.&#xD;&#xA;&#xD;&#xA;Expected enemy strength:&#xD;&#xA;   Escort&#xD;&#xA;1x Star Destroyer" Visibility="Hidden"/>
+        <TextBlock x:Name="MD5" Foreground="White" FontSize="50" HorizontalAlignment="Left" Margin="700,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="900" Width="1220" FontFamily="Franklin Gothic Book" Text="The Rebel base has been discovered and the Imperial super weapon is moving into position. &#xD;&#xA;Destroy the escorts and  the communications array to make the main assault easier.&#xD;&#xA;&#xD;&#xA;Expected enemy strength:&#xD;&#xA;4x TIE fighters&#xD;&#xA;2x Star Destroyer&#xD;&#xA;1x Death Star Comms " Visibility="Collapsed"/>
+        <Button x:Name="next" Style="{DynamicResource ButtonStyle1}" Background="Transparent" BorderBrush="Transparent" FontSize="70" Content="Next -&gt;" HorizontalAlignment="Left" Margin="1600,897,0,0" VerticalAlignment="Top" Height="180" Width="320" RenderTransformOrigin="0.524,0.487" FontWeight="Bold" Click="next_Click" Visibility="Collapsed"/>
+        <Button x:Name="dos" Style="{DynamicResource ButtonStyle1}" Background="Transparent" BorderBrush="Transparent" FontSize="72" Content="Enemy dossier" HorizontalAlignment="Left" Margin="659,902,0,0" VerticalAlignment="Top" Height="180" Width="504" RenderTransformOrigin="0.524,0.487" FontWeight="Bold" Click="dos_Click" Visibility="Visible"/>
+        <Image x:Name="EP1" HorizontalAlignment="Left" Height="445" Margin="20,150,0,0" VerticalAlignment="Top" Width="455" Source="/Imgs/TIE_Fighter.png" Stretch="Fill" Visibility="Collapsed"/>
+        <Image x:Name="EP2" HorizontalAlignment="Left" Height="445" Margin="475,150,0,0" VerticalAlignment="Top" Width="455" Source="/Imgs/TIE_Interceptor.png" Stretch="Fill" Visibility="Collapsed"/>
+        <Image x:Name="EP3" HorizontalAlignment="Left" Height="445" Margin="950,150,0,0" VerticalAlignment="Top" Width="455" Source="/Imgs/TIE_Bomber.png" Stretch="Fill" Visibility="Collapsed"/>
+        <Image x:Name="EP4" HorizontalAlignment="Left" Height="445" Margin="1425,150,0,20" VerticalAlignment="Top" Width="455" Source="/Imgs/Star_Destroyer.png" Stretch="Fill" Visibility="Collapsed"/>
+        <TextBox Style="{DynamicResource TextBoxStyle1}" x:Name="ED1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="20,602,0,0" TextWrapping="Wrap" Text="DMG: 20&#xA;HP: 40&#xA;AG: 10" VerticalAlignment="Top" Width="455" Height="272" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" FontSize="80" FontFamily="Franklin Gothic Demi" Visibility="Collapsed"/>
+        <TextBox Style="{DynamicResource TextBoxStyle1}" x:Name="ED2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="475,602,0,0" TextWrapping="Wrap" Text="DMG: 30&#xA;HP: 40&#xA;AG: 30" VerticalAlignment="Top" Width="455" Height="272" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" FontSize="80" FontFamily="Franklin Gothic Demi" Visibility="Collapsed"/>
+        <TextBox Style="{DynamicResource TextBoxStyle1}" x:Name="ED3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="950,602,0,0" TextWrapping="Wrap" Text="DMG: 10&#xA;HP: 70&#xA;AG: 5" VerticalAlignment="Top" Width="455" Height="272" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" FontSize="80" FontFamily="Franklin Gothic Demi" Visibility="Collapsed"/>
+        <TextBox Style="{DynamicResource TextBoxStyle1}" x:Name="ED4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1425,602,0,0" TextWrapping="Wrap" Text="DMG: 60&#xA;HP: 150&#xA;AG: 0" VerticalAlignment="Top" Width="455" Height="272" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" FontSize="80" FontFamily="Franklin Gothic Demi" Visibility="Collapsed"/>
+        <Label x:Name="E1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="TIE Fighter" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Height="114" Width="455" Foreground="White" FontSize="68" FontFamily="Franklin Gothic Demi" Visibility="Collapsed"/>
+        <Label x:Name="E2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="TIE Interceptor" HorizontalAlignment="Left" Margin="475,20,0,0" VerticalAlignment="Top" Height="114" Width="455" Foreground="White" FontSize="68" FontFamily="Franklin Gothic Demi" Visibility="Collapsed"/>
+        <Label x:Name="E3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="TIE Bomber" HorizontalAlignment="Left" Margin="950,20,0,0" VerticalAlignment="Top" Height="114" Width="455" Foreground="White" FontSize="68" FontFamily="Franklin Gothic Demi" Visibility="Collapsed"/>
+        <Label x:Name="E4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="Star Destroyer" HorizontalAlignment="Left" Margin="1425,20,0,0" VerticalAlignment="Top" Height="114" Width="455" Foreground="White" FontSize="68" FontFamily="Franklin Gothic Demi" Visibility="Collapsed"/>
+        <Button Style="{DynamicResource ButtonStyle1}"  x:Name="egg" BorderBrush="Transparent" BorderThickness="5" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="90" Content="special" Margin="1520,880,0,0" HorizontalAlignment="Left" Width="400" Height="200" FontWeight="Bold" Foreground="Black" Click="egg_Click" Visibility="Collapsed"/>
+        <Image x:Name="hid" Source="/Imgs/blck.png" Stretch="Fill" Margin="0"/>
     </Grid>
 </Window>

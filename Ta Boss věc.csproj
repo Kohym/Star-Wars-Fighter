@@ -6,12 +6,15 @@
     <RootNamespace>Ta_Boss_věc</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Imgs\favicon.ico</ApplicationIcon>
+    <PackageIcon>X.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Falcon.png" />
     <None Remove="Imgs\blck.png" />
     <None Remove="Imgs\center.png" />
+    <None Remove="Imgs\Death_Star.png" />
     <None Remove="Imgs\Elogo.png" />
     <None Remove="Imgs\F.png" />
     <None Remove="Imgs\Falcon.png" />
@@ -28,12 +31,12 @@
     <None Remove="Imgs\TIE Interceptor.png" />
     <None Remove="Imgs\TIE.png" />
     <None Remove="Imgs\TIE_Bomber.png" />
+    <None Remove="Imgs\TIE_Defender.png" />
     <None Remove="Imgs\TIE_Fighter.png" />
     <None Remove="Imgs\TIE_Interceptor.png" />
     <None Remove="Imgs\Vader_TIE.png" />
     <None Remove="Imgs\X-Wing.png" />
     <None Remove="Imgs\X-WingY.png" />
-    <None Remove="Imgs\X.png" />
     <None Remove="Imgs\X1.png" />
     <None Remove="Imgs\XY.png" />
     <None Remove="Imgs\Y-Wing.png" />
@@ -42,6 +45,8 @@
     <None Remove="Imgs\Y.png" />
     <None Remove="Imgs\Y1.png" />
     <None Remove="Imgs\YY.png" />
+    <None Remove="mp3\Death_Star.mp3" />
+    <None Remove="mp3\Death_Star_FLY.mp3" />
     <None Remove="mp3\door.mp3" />
     <None Remove="mp3\Ewin.mp3" />
     <None Remove="mp3\log.mp3" />
@@ -53,6 +58,8 @@
     <None Remove="mp3\talk.mp3" />
     <None Remove="mp3\TIE_Bomber.mp3" />
     <None Remove="mp3\TIE_Bomber_FLY.mp3" />
+    <None Remove="mp3\TIE_Defender.mp3" />
+    <None Remove="mp3\TIE_Defender_FLY.mp3" />
     <None Remove="mp3\TIE_Fighter.mp3" />
     <None Remove="mp3\TIE_Fighter_FLY.mp3" />
     <None Remove="mp3\TIE_Interceptor.mp3" />
@@ -75,10 +82,16 @@
     <Content Include="Imgs\center.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Imgs\Death_Star.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Imgs\Elogo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imgs\F.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imgs\FY.png">
@@ -94,6 +107,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imgs\TIE_Bomber.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imgs\TIE_Defender.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imgs\TIE_Fighter.png">
@@ -121,6 +137,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imgs\YY.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Death_Star.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\Death_Star_FLY.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="mp3\door.mp3">
@@ -156,6 +178,12 @@
     <Content Include="mp3\TIE_Bomber_FLY.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="mp3\TIE_Defender.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mp3\TIE_Defender_FLY.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="mp3\TIE_Fighter.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -189,6 +217,13 @@
     <Content Include="mp3\Y-Wing_FLY.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Imgs\X.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
