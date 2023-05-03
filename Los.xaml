@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         WindowStyle="None"
-        Title="Los" Height="1080" Width="1920" Background="Black" Loaded="Window_Loaded">
+        Title="Los" Height="1080" Width="1920" Background="Black" Loaded="Window_Loaded" MaxHeight="1080" MaxWidth="1920">
     <Grid>
         <Image x:Name="GG" Margin="613,10,613,354" Stretch="Fill"/>
         <Label FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="140" Content="Mission failed" Foreground="White" HorizontalAlignment="Center" Height="245" Margin="0,710,0,0" VerticalAlignment="Top" Width="1690" FontFamily="Franklin Gothic Demi"/>

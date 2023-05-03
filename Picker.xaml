@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         WindowStyle="None"
-        Title="Picker" Height="1080" Width="1920" Background="Black" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Picker" Height="1080" Width="1920" Background="Black" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" MaxHeight="1080" MaxWidth="1920">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
